@@ -10,11 +10,11 @@ go get -u github.com/go-playground/validator/v10/translations/zh
 ```
 
 ## 3. 基于Gin WEB框架下的使用
-### 3.1 直接在main.go中引入如下package
+### 3.1. 直接在main.go中引入如下package
 ```go
 import _ "github.com/yueja/go-validator"
 ```
-### 3.2 在Controller层参数绑定中使用本工具ShouldBindGinValidator
+### 3.2. 在Controller层参数绑定中使用本工具ShouldBindGinValidator
 ```go
 import  validator "github.com/yueja/go-validator"
 
@@ -26,10 +26,10 @@ import  validator "github.com/yueja/go-validator"
    }
    ...
 ```
-### 3.3 更多test测试用例，见gin_test.go
+### 3.3. 更多test测试用例，见gin_test.go
 
 ## 4. 基于Kratos 微服务框架下的中间件使用
-### 4.1 安装相关基础依赖
+### 4.1. 安装相关基础依赖
 ```shell
 # kratos相关依赖
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
@@ -41,7 +41,7 @@ go install github.com/google/wire/cmd/wire@latest
 # proto自定义tag依赖
 go install github.com/favadi/protoc-go-inject-tag@latest
 ```
-### 4.2 定义proto文件
+### 4.2. 定义proto文件
 ```protobuf
 message DemoRequest {
   // id必须大于 1
@@ -52,13 +52,13 @@ message DemoRequest {
 注：其中zhtrans是可选tag，主要用于参数校验错误提示友好性，进行对应字段中文翻译
 ```
 
-### 4.3 编译pb.go文件
+### 4.3. 编译pb.go文件
 在Makefile文件api添加如下命令，需要注意此命令需要在protoc命令之后执行
 ```shell    
 protoc-go-inject-tag -input="/you_pb.go_path/*.pb.go"
 ```
 
-### 4.4 文件生成
+### 4.4. 文件生成
 ```go
 以下为proto文件通过插件生成的文件部分内容
 
@@ -74,12 +74,12 @@ type StudentListRequest struct {
 }
 ```
 
-### 4.5 项目引用
-#### 4.5.1 直接在main.go中引入如下package
+### 4.5. 项目引用
+#### 4.5.1. 直接在main.go中引入如下package
 ```go
 import _ "github.com/yueja/go-validator"
 ```
-#### 4.5.2 接入中间件
+#### 4.5.2. 接入中间件
 ```go
 import  validator "github.com/yueja/go-validator"
 
@@ -93,10 +93,10 @@ import  validator "github.com/yueja/go-validator"
     ...
 ```
 
-### 4.6 测试用例
+### 4.6. 测试用例
 限于篇幅以及框架复杂原因，本工具尚未提供基于kratos中间件实现validator的测试用例
 
-### 4.7 更多validator语法学习见以下网址
+## 5. 更多validator语法学习见以下网址
 ```shell
 https://pkg.go.dev/github.com/go-playground/validator/v10
 ```
